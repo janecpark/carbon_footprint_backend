@@ -22,11 +22,6 @@ app.use('/carbon', carbonRoutes);
 app.use('/', authRoutes);
 app.use('/takeaction', actionRoutes)
 
-app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.status = 404;
-    return next(err);
-});
 
 /** 404 Handler */
 
@@ -40,7 +35,6 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     if (err.stack) console.log(err.stack);
     res.status(err.status || 500);
-    console.log(err.message);
     return res.json({
         error: err,
         message: err.message,
