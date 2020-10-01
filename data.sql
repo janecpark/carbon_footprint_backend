@@ -1,5 +1,4 @@
 
-\c carbon_footprint
 
 DROP TABLE IF EXISTS users; 
 DROP TABLE IF EXISTS results; 
